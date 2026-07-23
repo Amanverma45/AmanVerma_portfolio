@@ -68,22 +68,22 @@ const ThemeLab = ({ isOpen, onClose }) => {
 
             {/* Sidebar Panel */}
             <div
-                className={`fixed inset-y-0 right-0 z-50 w-full sm:w-[360px] h-screen glassmorphism border-l border-white/10 flex flex-col p-6 overflow-y-auto transition-transform duration-500 ease-out transform ${
+                className={`fixed inset-y-0 right-0 z-50 w-full sm:w-[360px] h-screen glassmorphism border-l border-white/10 flex flex-col p-5 overflow-y-hidden transition-transform duration-500 ease-out transform ${
                     isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}
             >
                 {/* Header */}
-                <div className="flex justify-between items-center pb-5 border-b border-white/10">
+                <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <div className="flex items-center space-x-2.5">
                         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/35">
                             <Palette className="w-4 h-4 text-purple-400" />
                         </div>
-                        <span className="text-white font-bold text-lg tracking-wide">Theme Lab</span>
+                        <span className="text-white font-bold text-base tracking-wide">Theme Lab</span>
                     </div>
                     <button
                         onClick={onClose}
                         aria-label="Close Panel"
-                        className="group relative p-2.5 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 text-gray-400 hover:text-red-400 transition-all duration-500 focus:outline-none cursor-pointer"
+                        className="group relative p-2 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 text-gray-400 hover:text-red-400 transition-all duration-500 focus:outline-none cursor-pointer"
                     >
                         <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
                         
@@ -96,14 +96,14 @@ const ThemeLab = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Color Palette Section */}
-                <div className="mt-6">
-                    <div className="flex items-center space-x-2 text-gray-300 mb-4 text-sm font-semibold tracking-wide">
-                        <Sparkles className="w-4 h-4 text-purple-400" />
+                <div className="mt-4">
+                    <div className="flex items-center space-x-2 text-gray-300 mb-2.5 text-xs font-semibold tracking-wide uppercase">
+                        <Sparkles className="w-3.5 h-3.5 text-purple-400" />
                         <span>Color Palette</span>
                     </div>
                     
                     {/* Theme Grid */}
-                    <div className="grid grid-cols-5 gap-3.5">
+                    <div className="grid grid-cols-5 gap-2.5">
                         {Object.entries(themePalettes).map(([key, item]) => {
                             const isSelected = activeColor === key && !isAuto
                             return (
@@ -121,7 +121,7 @@ const ThemeLab = ({ isOpen, onClose }) => {
                                     {/* Selection Glow Indicator */}
                                     {isSelected && (
                                         <div className="absolute inset-1 border border-black/20 rounded-lg flex items-center justify-center">
-                                            <div className="w-2.5 h-2.5 rounded-full bg-white shadow-sm" />
+                                            <div className="w-2 h-2 rounded-full bg-white shadow-sm" />
                                         </div>
                                     )}
                                 </button>
@@ -131,20 +131,20 @@ const ThemeLab = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Auto Rotation Switch */}
-                <div className="mt-8 pt-6 border-t border-white/5 flex justify-between items-center">
+                <div className="mt-5 pt-4 border-t border-white/5 flex justify-between items-center">
                     <div className="flex flex-col text-left">
                         <span className="text-sm font-semibold text-white tracking-wide">Auto-Rotate Theme</span>
-                        <span className="text-xs text-gray-400 mt-0.5">Pick random color on reload</span>
+                        <span className="text-[11px] text-gray-400 mt-0.5">Pick random color on reload</span>
                     </div>
                     <button
                         onClick={toggleAutoTheme}
-                        className={`relative w-12 h-6.5 rounded-full p-1 transition-colors duration-300 focus:outline-none flex items-center ${
+                        className={`relative w-11 h-6 rounded-full p-0.5 transition-colors duration-300 focus:outline-none flex items-center cursor-pointer ${
                             isAuto ? 'bg-purple-600' : 'bg-white/10'
                         }`}
                     >
                         <div
-                            className={`w-4.5 h-4.5 rounded-full bg-white shadow-md transform transition-transform duration-300 flex items-center justify-center ${
-                                isAuto ? 'translate-x-5.5' : 'translate-x-0'
+                            className={`w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 flex items-center justify-center ${
+                                isAuto ? 'translate-x-5' : 'translate-x-0'
                             }`}
                         >
                             {isAuto && <RefreshCw className="w-2.5 h-2.5 text-purple-600 animate-spin-slow" />}
@@ -153,20 +153,20 @@ const ThemeLab = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Background FX Section */}
-                <div className="mt-8 pt-6 border-t border-white/5">
-                    <div className="flex items-center space-x-2 text-gray-300 mb-4 text-sm font-semibold tracking-wide">
-                        <Layers className="w-4 h-4 text-purple-400" />
+                <div className="mt-5 pt-4 border-t border-white/5">
+                    <div className="flex items-center space-x-2 text-gray-300 mb-3 text-xs font-semibold tracking-wide uppercase">
+                        <Layers className="w-3.5 h-3.5 text-purple-400" />
                         <span>Background FX</span>
                     </div>
 
-                    <div className="flex flex-col space-y-2.5">
+                    <div className="flex flex-col space-y-2">
                         {fxOptions.map(option => {
                             const isSelected = activeFx === option.key
                             return (
                                 <button
                                     key={option.key}
                                     onClick={() => handleFxClick(option.key)}
-                                    className={`w-full text-left px-4 py-3 rounded-xl border text-sm font-medium transition-all duration-300 flex justify-between items-center ${
+                                    className={`w-full text-left px-3.5 py-2.5 rounded-xl border text-xs font-medium transition-all duration-300 flex justify-between items-center cursor-pointer ${
                                         isSelected
                                             ? 'bg-purple-500/20 border-purple-500/40 text-white shadow-inner'
                                             : 'bg-white/5 border-transparent text-gray-400 hover:bg-white/10 hover:text-white'
@@ -183,7 +183,7 @@ const ThemeLab = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-auto pt-6 text-center text-[10px] text-gray-500 border-t border-white/5">
+                <div className="mt-auto pt-4 text-center text-[10px] text-gray-500 border-t border-white/5">
                     Select dynamic themes to personalize your experience.
                 </div>
             </div>
