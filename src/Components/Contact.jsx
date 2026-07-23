@@ -54,10 +54,32 @@ const Contact = () => {
 
         setStatus('submitting')
 
-        setTimeout(() => {
-            setStatus('success')
-            setFormData({ name: '', email: '', subject: '', message: '' })
-        }, 1200)
+        fetch("https://formsubmit.co/ajax/av478136@gmail.com", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                Name: formData.name,
+                Email: formData.email,
+                Subject: formData.subject || "New Inquiry from Portfolio",
+                Message: formData.message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success === "true" || data.success) {
+                setStatus('success')
+                setFormData({ name: '', email: '', subject: '', message: '' })
+            } else {
+                setStatus('error')
+            }
+        })
+        .catch(error => {
+            console.error("Error submitting form:", error)
+            setStatus('error')
+        })
     }
 
     return (
@@ -228,10 +250,16 @@ const Contact = () => {
                                             className="w-full bg-white/5 border border-white/10 focus:border-purple-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors duration-300 placeholder-gray-600 resize-none"
                                         />
                                     </div>
+                                    {status === 'error' && (
+                                        <div className="p-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl text-xs text-center font-medium animate-fade-in">
+                                            Something went wrong. Please try again or email me directly at av478136@gmail.com
+                                        </div>
+                                    )}
+
                                     <button
                                         type="submit"
                                         disabled={status === 'submitting'}
-                                        className="w-full flex items-center justify-center space-x-2 px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                                        className="w-full flex items-center justify-center space-x-2 px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed text-sm cursor-pointer"
                                     >
                                         {status === 'submitting' ? (
                                             <>
