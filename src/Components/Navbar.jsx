@@ -113,10 +113,10 @@ const Navbar = () => {
                             <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
                             
                             {/* 3-Line Custom Hamburger */}
-                            <div className="relative w-5 h-3.5 z-10 flex flex-col justify-between items-end">
-                                <span className="h-0.5 w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
-                                <span className="h-0.5 w-3 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-5" />
-                                <span className="h-0.5 w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
+                            <div className="relative w-5 h-4.5 z-10 flex flex-col justify-between items-end">
+                                <span className="h-1 w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
+                                <span className="h-1 w-3 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-5" />
+                                <span className="h-1 w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
                             </div>
                         </button>
                     </div>
