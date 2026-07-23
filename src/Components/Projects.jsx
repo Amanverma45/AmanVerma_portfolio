@@ -8,7 +8,7 @@ const Projects = () => {
             description: 'A modern peer-to-peer item swapping marketplace platform. Enables users to upload items, list exchange preferences, negotiate deals, and barter items seamlessly.',
             tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS', 'Socket.io'],
             link: 'https://swaphub45.netlify.app',
-            image: '/swaphub.png',
+            image: '/swapHub.png',
             category: 'Full-Stack MERN'
         },
         {
@@ -16,7 +16,7 @@ const Projects = () => {
             description: 'A premium event planning and decoration portfolio platform. Features categorised event galleries, dynamic inquiry forms, booking engines, and highly responsive transitions.',
             tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Express', 'Node.js', 'MongoDB'],
             link: 'https://yn-event.netlify.app',
-            image: '/yn-events.png',
+            image: '/yn-event.png',
             category: 'MERN & UI'
         },
         {
@@ -24,7 +24,7 @@ const Projects = () => {
             description: 'An advanced job matching and recruitment portal. Bridges the gap between job seekers and employers with resume trackers, job posting dashboards, and real-time alerts.',
             tech: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
             link: 'https://yourcareerbridge.netlify.app',
-            image: '/careerbridge.png',
+            image: '/carrerBridge.png',
             category: 'Full-Stack MERN'
         }
     ]
