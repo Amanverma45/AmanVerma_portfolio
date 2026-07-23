@@ -27,38 +27,57 @@ const About = () => {
                     {/* Left Column: Profile Picture & Terminal Mockup */}
                     <div className="lg:col-span-5 flex flex-col space-y-6 items-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
 
-                        {/* Profile Image Container - Seamless w-52 Square Aspect on Desktop and Mobile */}
-                        <div className="relative group w-52 h-52 overflow-hidden bg-transparent transition-all duration-500 hover:scale-[1.02]">
-                            {/* User Profile Image */}
-                            <img
-                                src="/profile.png"
-                                alt="Aman Verma"
-                                className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.04] saturate-[1.02] transition-all duration-500 group-hover:scale-105"
-                                onError={(e) => {
-                                    // Fallback UI placeholder if profile.png is missing
-                                    e.target.src = 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'
-                                }}
-                            />
-                            {/* Ambient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                         {/* Live Morphing Profile Image Container */}
+                        <div className="relative w-56 h-56 flex items-center justify-center group mb-2">
+                            {/* Dynamic Glowing Live Backdrop (Rotates and Morphs) */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-blue-500 rounded-3xl opacity-35 blur-xl group-hover:opacity-60 transition-opacity duration-500 animate-morph" style={{ animationDelay: '1s' }} />
 
-                            {/* Multi-colored Neon Glowing Particles - Bottom 30% only */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[30%] overflow-hidden pointer-events-none select-none z-10">
-                                {[...Array(16)].map((_, i) => {
-                                    const colors = ['bg-cyan-400/60', 'bg-purple-400/60', 'bg-pink-400/60', 'bg-emerald-400/60']
-                                    const color = colors[i % colors.length]
-                                    return (
-                                        <span
-                                            key={i}
-                                            className={`absolute bottom-0 w-1 h-1 ${color} rounded-full blur-[0.5px] animate-sparkle`}
-                                            style={{
-                                                left: `${5 + i * 5.8 + Math.random() * 3}%`,
-                                                animationDelay: `${i * 0.18}s`,
-                                                animationDuration: `${1.4 + Math.random() * 1.4}s`,
-                                            }}
-                                        />
-                                    )
-                                })}
+                            {/* Inner Profile frame (Slowly morphs shape) */}
+                            <div className="relative w-52 h-52 overflow-hidden border border-purple-500/30 group-hover:border-purple-500/60 shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-500 animate-morph bg-slate-950">
+                                {/* User Profile Image */}
+                                <img
+                                    src="/profile.png"
+                                    alt="Aman Verma"
+                                    className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.04] saturate-[1.02] transition-all duration-500 scale-105 group-hover:scale-110"
+                                    onError={(e) => {
+                                        // Fallback UI placeholder if profile.png is missing
+                                        e.target.src = 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'
+                                    }}
+                                />
+                                
+                                {/* Ambient gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                                {/* Light sheen sweep effect on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+
+                                {/* Multi-colored Neon Glowing Particles - Bottom 30% only */}
+                                <div className="absolute bottom-0 left-0 right-0 h-[30%] overflow-hidden pointer-events-none select-none z-10">
+                                    {[...Array(16)].map((_, i) => {
+                                        const colors = ['bg-cyan-400/60', 'bg-purple-400/60', 'bg-pink-400/60', 'bg-emerald-400/60']
+                                        const color = colors[i % colors.length]
+                                        return (
+                                            <span
+                                                key={i}
+                                                className={`absolute bottom-0 w-1 h-1 ${color} rounded-full blur-[0.5px] animate-sparkle`}
+                                                style={{
+                                                    left: `${5 + i * 5.8 + Math.random() * 3}%`,
+                                                    animationDelay: `${i * 0.18}s`,
+                                                    animationDuration: `${1.4 + Math.random() * 1.4}s`,
+                                                }}
+                                            />
+                                        )
+                                    })}
+                                </div>
+                            </div>
+
+                            {/* Floating Status Badge (Live Status) */}
+                            <div className="absolute -top-1 -right-1 px-3.5 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-full text-[9px] font-extrabold tracking-wider uppercase animate-bounce-slow flex items-center gap-1.5 shadow-lg shadow-purple-600/30 z-20 select-none">
+                                <span className="relative flex h-1.5 w-1.5">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                                </span>
+                                Developer
                             </div>
                         </div>
 
