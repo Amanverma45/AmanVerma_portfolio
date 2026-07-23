@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Home, User, Briefcase, Cpu, Mail, Menu, X, ArrowRight } from 'lucide-react'
+import { Home, User, Briefcase, Cpu, Mail, Menu, X, ArrowRight, Palette } from 'lucide-react'
+import ThemeLab from './ThemeLab'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [isThemeOpen, setIsThemeOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {
@@ -89,8 +91,16 @@ const Navbar = () => {
                         })}
                     </div>
 
-                    {/* Right: Contact CTA (Desktop) */}
-                    <div className="hidden md:block">
+                    {/* Right: Contact & Theme (Desktop) */}
+                    <div className="hidden md:flex items-center space-x-4">
+                        {/* Theme Lab Trigger Button (Desktop) */}
+                        <button
+                            onClick={() => setIsThemeOpen(true)}
+                            aria-label="Open Theme Settings"
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white/5 hover:bg-purple-500/10 border border-white/5 hover:border-purple-500/30 text-gray-400 hover:text-purple-400 transition-all duration-300 focus:outline-none cursor-pointer"
+                        >
+                            <Palette className="w-5 h-5" />
+                        </button>
                         <NavLink
                             to="/contact"
                             className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs lg:text-sm font-medium text-white rounded-full group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(168,85,247,0.5)]"
@@ -102,8 +112,18 @@ const Navbar = () => {
                         </NavLink>
                     </div>
 
-                    {/* Mobile Toggle Menu */}
-                    <div className="md:hidden flex items-center">
+                    {/* Mobile Toggle Menu & Theme Trigger */}
+                    <div className="md:hidden flex items-center space-x-3">
+                        {/* Theme Lab Trigger (Mobile) */}
+                        <button
+                            onClick={() => setIsThemeOpen(true)}
+                            aria-label="Open Theme Settings"
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white/5 hover:bg-purple-500/10 border border-white/5 hover:border-purple-500/30 text-gray-400 hover:text-purple-400 transition-all duration-300 focus:outline-none cursor-pointer"
+                        >
+                            <Palette className="w-5 h-5" />
+                        </button>
+                        
+                        {/* Hamburger Button */}
                         <button
                             onClick={() => setIsOpen(true)}
                             aria-label="Open Menu"
@@ -209,6 +229,9 @@ const Navbar = () => {
                     © {new Date().getFullYear()} Aman. All rights reserved.
                 </div>
             </div>
+            
+            {/* Theme Settings Sidebar */}
+            <ThemeLab isOpen={isThemeOpen} onClose={() => setIsThemeOpen(false)} />
         </>
     )
 }

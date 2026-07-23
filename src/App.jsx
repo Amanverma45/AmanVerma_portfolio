@@ -10,6 +10,7 @@ import ScrollToTop from './Components/ScrollToTop'
 import ScrollProgress from './Components/ScrollProgress'
 import CursorGlow from './Components/CursorGlow'
 import NotFound from './Components/NotFound'
+import BackgroundFX from './Components/BackgroundFX'
 import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
     <>
       <ScrollProgress />
       <CursorGlow />
+      <BackgroundFX />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
