@@ -67,19 +67,19 @@ const Contact = () => {
                 Message: formData.message
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success === "true" || data.success) {
-                setStatus('success')
-                setFormData({ name: '', email: '', subject: '', message: '' })
-            } else {
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === "true" || data.success) {
+                    setStatus('success')
+                    setFormData({ name: '', email: '', subject: '', message: '' })
+                } else {
+                    setStatus('error')
+                }
+            })
+            .catch(error => {
+                console.error("Error submitting form:", error)
                 setStatus('error')
-            }
-        })
-        .catch(error => {
-            console.error("Error submitting form:", error)
-            setStatus('error')
-        })
+            })
     }
 
     return (

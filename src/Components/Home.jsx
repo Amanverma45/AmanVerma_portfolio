@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Mail, Briefcase, Code, Database, Server, Download } from 'lucide-react'
 
 const Home = () => {
-    const words = ["MERN Stack Developer", "Backend API Specialist", "Frontend Craftsman", "Full Stack Engineer"]
+    const words = ["MERN Stack Developer", "Backend Developer", "Frontend Developer", "Full Stack Developer"]
     const [wordIndex, setWordIndex] = useState(0)
     const [subIndex, setSubIndex] = useState(0)
     const [reverse, setReverse] = useState(false)
