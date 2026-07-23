@@ -13,7 +13,7 @@
   --animate-spin-normal: spin 12s linear infinite;
   --animate-spin-reverse-normal: spin 12s linear infinite reverse;
   --animate-morph: morph 8s ease-in-out infinite;
-  --animate-rebound: rebound-slide 1.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  --animate-rebound: rebound-slide 2.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   --animate-bounce-slow: bounce-slow 3s ease-in-out infinite;
   --animate-sparkle: sparkle 2.5s ease-in-out infinite;
   --animate-sparkle-bg: sparkle-bg 4s ease-in-out infinite;
@@ -28,10 +28,10 @@
     50% { border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%; }
   }
   @keyframes rebound-slide {
-    0% { transform: translateX(-100vw); }
-    60% { transform: translateX(70vw); }
-    80% { transform: translateX(-15px); }
-    100% { transform: translateX(0); }
+    0% { transform: translateX(-100vw) rotate(-360deg); }
+    60% { transform: translateX(110px) rotate(20deg); }
+    80% { transform: translateX(-12px) rotate(-4deg); }
+    100% { transform: translateX(0) rotate(0deg); }
   }
   @keyframes slide-down {
     from { transform: translateY(-100%); }
