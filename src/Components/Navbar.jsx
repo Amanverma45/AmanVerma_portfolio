@@ -47,16 +47,13 @@ const Navbar = () => {
                 : 'py-5 sm:py-6 bg-transparent'
                 }`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                    {/* Left: Professional Logo */}
                     <NavLink
                         to="/"
                         className="flex items-center space-x-3 group"
                     >
-                        {/* Initials Badge - Solid Purple Accent */}
                         <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/35 transition-all duration-300 shadow-[0_0_10px_rgba(168,85,247,0.1)]">
                             <span className="text-purple-400 font-semibold text-sm">AV</span>
                         </div>
-                        {/* Logo Text & Subtitle - Normal Fonts */}
                         <div className="flex flex-col">
                             <span className="text-white font-semibold text-lg sm:text-xl transition-colors duration-300 group-hover:text-purple-400">
                                 Aman<span className="text-purple-500">.</span>
@@ -67,7 +64,6 @@ const Navbar = () => {
                         </div>
                     </NavLink>
 
-                    {/* Center: Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-1 glassmorphism-light rounded-full px-3 py-1 sm:px-4 sm:py-1.5 border border-white/5">
                         {navLinks.map((link) => {
                             const Icon = link.icon
@@ -84,16 +80,13 @@ const Navbar = () => {
                                 >
                                     <Icon className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                                     <span>{link.name}</span>
-                                    {/* Hover underline slide-in effect */}
                                     <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-1/3"></span>
                                 </NavLink>
                             )
                         })}
                     </div>
 
-                    {/* Right: Contact & Theme (Desktop) */}
                     <div className="hidden md:flex items-center space-x-4">
-                        {/* Theme Lab Trigger Button (Desktop) */}
                         <button
                             onClick={() => setIsThemeOpen(true)}
                             aria-label="Open Theme Settings"
@@ -112,9 +105,7 @@ const Navbar = () => {
                         </NavLink>
                     </div>
 
-                    {/* Mobile Toggle Menu & Theme Trigger */}
                     <div className="md:hidden flex items-center space-x-3">
-                        {/* Theme Lab Trigger (Mobile) */}
                         <button
                             onClick={() => setIsThemeOpen(true)}
                             aria-label="Open Theme Settings"
@@ -123,16 +114,13 @@ const Navbar = () => {
                             <Palette className="w-5 h-5" />
                         </button>
                         
-                        {/* Hamburger Button */}
                         <button
                             onClick={() => setIsOpen(true)}
                             aria-label="Open Menu"
                             className="group relative p-3 flex flex-col justify-center items-end rounded-xl bg-white/5 hover:bg-purple-600/10 border border-white/5 hover:border-purple-500/35 text-gray-400 hover:text-purple-400 transition-all duration-500 focus:outline-none"
                         >
-                            {/* Rare Animated Glowing Aura */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
                             
-                            {/* 3-Line Custom Hamburger */}
                             <div className="relative w-5 h-4 z-10 flex flex-col justify-between items-end">
                                 <span className="h-[3px] w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
                                 <span className="h-[3px] w-3 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-5" />
@@ -143,25 +131,20 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            {/* Mobile Drawer Backdrop */}
             <div className={`md:hidden fixed inset-0 z-45 bg-black/70 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`} onClick={() => setIsOpen(false)} />
 
-            {/* Mobile Drawer Panel */}
             <div className={`md:hidden fixed inset-y-0 right-0 z-50 w-full sm:w-[360px] h-screen glassmorphism border-l border-white/10 flex flex-col p-6 overflow-y-auto transition-transform duration-500 ease-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}>
-                {/* Header inside drawer */}
                 <div className="flex justify-between items-center pb-6 border-b border-white/10">
                     <NavLink
                         to="/"
                         onClick={() => setIsOpen(false)}
                         className="flex items-center space-x-3 group"
                     >
-                        {/* Initials Badge - Solid Purple Accent */}
                         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/35 shadow-[0_0_10px_rgba(168,85,247,0.1)]">
                             <span className="text-purple-400 font-semibold text-xs">AV</span>
                         </div>
-                        {/* Logo Text & Subtitle */}
                         <div className="flex flex-col">
                             <span className="text-white font-semibold text-base group-hover:text-purple-400">
                                 Aman<span className="text-purple-500">.</span>
@@ -178,7 +161,6 @@ const Navbar = () => {
                     >
                         <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
                         
-                        {/* Custom X matching the hamburger line thickness and style */}
                         <div className="relative w-5 h-5 z-10 flex items-center justify-center">
                             <span className="absolute h-[3px] w-5 rounded bg-current rotate-45 transition-all duration-500 ease-in-out group-hover:rotate-[225deg]" />
                             <span className="absolute h-[3px] w-5 rounded bg-current -rotate-45 transition-all duration-500 ease-in-out group-hover:rotate-[135deg]" />
@@ -186,7 +168,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Navigation Links */}
                 <div className="flex flex-col space-y-2 mt-5">
                     {navLinks.map((link, idx) => {
                         const Icon = link.icon
@@ -224,13 +205,11 @@ const Navbar = () => {
                     </NavLink>
                 </div>
 
-                {/* Footer inside drawer */}
                 <div className="mt-auto pt-6 text-center text-xs text-gray-500 border-t border-white/5">
                     © {new Date().getFullYear()} Aman. All rights reserved.
                 </div>
             </div>
             
-            {/* Theme Settings Sidebar */}
             <ThemeLab isOpen={isThemeOpen} onClose={() => setIsThemeOpen(false)} />
         </>
     )

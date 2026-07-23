@@ -38,13 +38,11 @@ const Projects = () => {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
-            {/* Ambient Background Glows */}
             <div className="absolute top-1/4 left-1/3 w-80 h-80 rounded-full bg-purple-600/5 blur-[120px] pointer-events-none animate-pulse-slow" />
             <div className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-blue-500/5 blur-[150px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 
-                {/* Section Header */}
                 <div className="flex flex-col items-center text-center space-y-3 mb-10 animate-fade-in">
                     <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-purple-400 font-mono lowercase">
                         // featured works
@@ -58,7 +56,6 @@ const Projects = () => {
                     </p>
                 </div>
 
-                {/* Filter Buttons */}
                 <div className="flex justify-center items-center gap-3 mb-12 animate-fade-in" style={{ animationDelay: '0.1s' }}>
                     {categories.map((category) => (
                         <button
@@ -75,7 +72,6 @@ const Projects = () => {
                     ))}
                 </div>
 
-                {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project, index) => (
                         <div
@@ -83,7 +79,6 @@ const Projects = () => {
                             className="group block relative glassmorphism rounded-2xl transition-all duration-300 hover:-translate-y-2 border border-white/5 hover:border-purple-500/40 hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)] animate-slide-up overflow-hidden"
                             style={{ animationDelay: `${index * 120}ms` }}
                         >
-                            {/* Project Screenshot Display (At the very top, edge-to-edge) */}
                             <div className="relative w-full aspect-video overflow-hidden bg-slate-950/40 border-b border-white/5">
                                 <img 
                                     src={project.image} 
@@ -93,13 +88,10 @@ const Projects = () => {
                                         e.target.style.display = 'none';
                                     }}
                                 />
-                                {/* Gradient Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                             </div>
 
-                            {/* Card Content Container */}
                             <div className="p-6 flex flex-col">
-                                {/* Category & Info Icon Header */}
                                 <div className="flex justify-between items-center mb-3">
                                     <span className="text-[10px] text-purple-400 font-mono uppercase tracking-wider font-semibold">
                                         {project.category}
@@ -109,17 +101,14 @@ const Projects = () => {
                                     </div>
                                 </div>
 
-                                {/* Title */}
                                 <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
                                     {project.title}
                                 </h3>
 
-                                {/* Description */}
                                 <p className="text-gray-400 text-sm font-light mt-3 leading-relaxed min-h-[84px]">
                                     {project.description}
                                 </p>
 
-                                {/* Tech Stack Tags */}
                                 <div className="flex flex-wrap gap-2 mt-5">
                                     {project.tech.map((tag, tagIndex) => (
                                         <span
@@ -131,7 +120,6 @@ const Projects = () => {
                                     ))}
                                 </div>
 
-                                {/* Dedicated View Project Button (Only clickable area to open project) */}
                                 <div className="mt-6 pt-4 border-t border-white/5">
                                     <a
                                         href={project.link}
