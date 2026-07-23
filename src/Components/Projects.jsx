@@ -78,22 +78,18 @@ const Projects = () => {
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project, index) => (
-                        <a
+                        <div
                             key={project.title}
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block relative glassmorphism rounded-2xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-2 border border-white/5 hover:border-purple-500/40 hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)] animate-slide-up"
+                            className="group block relative glassmorphism rounded-2xl transition-all duration-300 hover:-translate-y-2 border border-white/5 hover:border-purple-500/40 hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)] animate-slide-up overflow-hidden"
                             style={{ animationDelay: `${index * 120}ms` }}
                         >
-                            {/* Project Screenshot Display */}
-                            <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 border border-white/10 group-hover:border-purple-500/30 transition-all duration-300 bg-slate-950/40">
+                            {/* Project Screenshot Display (At the very top, edge-to-edge) */}
+                            <div className="relative w-full aspect-video overflow-hidden bg-slate-950/40 border-b border-white/5">
                                 <img 
                                     src={project.image} 
                                     alt={project.title} 
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     onError={(e) => {
-                                        // Fallback design if image is missing/loading
                                         e.target.style.display = 'none';
                                     }}
                                 />
@@ -101,43 +97,54 @@ const Projects = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                             </div>
 
-                            {/* Project Header Icons */}
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-2.5 bg-purple-500/10 rounded-lg border border-purple-500/20 text-purple-400 group-hover:bg-purple-500/20 group-hover:text-white transition-all duration-300">
-                                    <Globe className="w-5 h-5" />
-                                </div>
-                                <div className="text-gray-500 group-hover:text-purple-400 transition-colors duration-300">
-                                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                </div>
-                            </div>
-
-                            {/* Category Badge */}
-                            <span className="text-[10px] text-purple-400 font-mono uppercase tracking-wider font-semibold">
-                                {project.category}
-                            </span>
-
-                            {/* Title */}
-                            <h3 className="text-xl font-bold text-white mt-2 group-hover:text-purple-300 transition-colors duration-300">
-                                {project.title}
-                            </h3>
-
-                            {/* Description */}
-                            <p className="text-gray-400 text-sm font-light mt-3 leading-relaxed min-h-[84px]">
-                                {project.description}
-                            </p>
-
-                            {/* Tech Stack Tags */}
-                            <div className="flex flex-wrap gap-2 mt-6">
-                                {project.tech.map((tag, tagIndex) => (
-                                    <span
-                                        key={tagIndex}
-                                        className="px-2.5 py-1 bg-white/5 border border-white/5 rounded-lg text-xs text-gray-300 font-medium font-sans"
-                                    >
-                                        {tag}
+                            {/* Card Content Container */}
+                            <div className="p-6 flex flex-col">
+                                {/* Category & Info Icon Header */}
+                                <div className="flex justify-between items-center mb-3">
+                                    <span className="text-[10px] text-purple-400 font-mono uppercase tracking-wider font-semibold">
+                                        {project.category}
                                     </span>
-                                ))}
+                                    <div className="p-2 bg-purple-500/10 rounded-lg border border-purple-500/20 text-purple-400 group-hover:bg-purple-500/20 group-hover:text-white transition-all duration-300">
+                                        <Globe className="w-4 h-4" />
+                                    </div>
+                                </div>
+
+                                {/* Title */}
+                                <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
+                                    {project.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p className="text-gray-400 text-sm font-light mt-3 leading-relaxed min-h-[84px]">
+                                    {project.description}
+                                </p>
+
+                                {/* Tech Stack Tags */}
+                                <div className="flex flex-wrap gap-2 mt-5">
+                                    {project.tech.map((tag, tagIndex) => (
+                                        <span
+                                            key={tagIndex}
+                                            className="px-2.5 py-1 bg-white/5 border border-white/5 rounded-lg text-xs text-gray-300 font-medium font-sans"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                {/* Dedicated View Project Button (Only clickable area to open project) */}
+                                <div className="mt-6 pt-4 border-t border-white/5">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center justify-center space-x-2 px-5 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-md shadow-purple-600/10 hover:shadow-purple-600/30 hover:-translate-y-0.5 text-xs w-full"
+                                    >
+                                        <span>View Project</span>
+                                        <ArrowUpRight className="w-3.5 h-3.5" />
+                                    </a>
+                                </div>
                             </div>
-                        </a>
+                        </div>
                     ))}
                 </div>
 
