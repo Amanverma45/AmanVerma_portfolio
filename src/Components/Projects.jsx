@@ -14,10 +14,10 @@ const Projects = () => {
         {
             title: 'YN Events',
             description: 'A premium event planning and decoration portfolio platform. Features categorised event galleries, dynamic inquiry forms, booking engines, and highly responsive transitions.',
-            tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Express', 'Node.js', 'MongoDB'],
+            tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Lucide Icons', 'Responsive UI'],
             link: 'https://yn-event.netlify.app',
             image: '/yn-event.png',
-            category: 'MERN & UI'
+            category: 'Frontend & UI'
         },
         {
             title: 'CareerBridge',
@@ -29,7 +29,7 @@ const Projects = () => {
         }
     ]
 
-    const categories = ['All', 'Full-Stack MERN', 'MERN & UI']
+    const categories = ['All', 'Full-Stack MERN', 'Frontend & UI']
     const [activeFilter, setActiveFilter] = useState('All')
 
     const filteredProjects = activeFilter === 'All'
