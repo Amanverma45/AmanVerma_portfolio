@@ -1,30 +1,28 @@
 import React, { useState } from 'react'
 import { Mail, Phone, MapPin, Send, CheckCircle, ArrowRight } from 'lucide-react'
 
-// Custom GitHub SVG Icon to avoid Lucide package export issues
 const GithubIcon = (props) => (
-    <svg 
-        {...props} 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
+    <svg
+        {...props}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
         strokeLinejoin="round"
     >
         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
     </svg>
 )
 
-// Custom LinkedIn SVG Icon
 const LinkedinIcon = (props) => (
-    <svg 
-        {...props} 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
+    <svg
+        {...props}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
         strokeLinejoin="round"
     >
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -40,7 +38,7 @@ const Contact = () => {
         subject: '',
         message: ''
     })
-    const [status, setStatus] = useState('idle') // idle | submitting | success
+    const [status, setStatus] = useState('idle')
 
     const handleInputChange = (e) => {
         const { name, value } = e.target
@@ -55,8 +53,7 @@ const Contact = () => {
         if (!formData.name || !formData.email || !formData.message) return
 
         setStatus('submitting')
-        
-        // Simulate API Form Submission Process
+
         setTimeout(() => {
             setStatus('success')
             setFormData({ name: '', email: '', subject: '', message: '' })
@@ -65,13 +62,12 @@ const Contact = () => {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
-            {/* Ambient Background Glows */}
+
             <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-600/5 blur-[150px] pointer-events-none animate-pulse-slow" />
             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-blue-500/5 blur-[120px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '1.8s' }} />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-                
-                {/* Section Header */}
+
                 <div className="flex flex-col items-center text-center space-y-3 mb-16 animate-fade-in">
                     <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-purple-400 font-mono lowercase">
                         // connect with me
@@ -86,11 +82,9 @@ const Contact = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                    
-                    {/* Left Column: Contact details & cards */}
+
                     <div className="lg:col-span-5 flex flex-col space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                        
-                        {/* Title */}
+
                         <div className="space-y-3">
                             <h3 className="text-2xl font-bold text-white">Let's start a conversation</h3>
                             <p className="text-gray-400 text-sm sm:text-base font-light leading-relaxed">
@@ -98,9 +92,7 @@ const Contact = () => {
                             </p>
                         </div>
 
-                        {/* Contact Cards Grid */}
                         <div className="space-y-4 pt-2">
-                            {/* Email Card */}
                             <div className="flex items-center space-x-4 p-4 rounded-xl border border-white/5 bg-white/5 hover:border-purple-500/30 transition-all duration-300">
                                 <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
                                     <Mail className="w-5 h-5" />
@@ -108,7 +100,7 @@ const Contact = () => {
                                 <div className="flex flex-col">
                                     <span className="text-xs text-purple-400 font-mono">Email Me</span>
                                     <a href="mailto:amanverma@example.com" className="text-white hover:text-purple-300 font-medium text-sm sm:text-base transition-colors duration-300">
-                                        amanverma@example.com
+                                        av478136@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -121,12 +113,11 @@ const Contact = () => {
                                 <div className="flex flex-col">
                                     <span className="text-xs text-purple-400 font-mono">Call Me</span>
                                     <a href="tel:+919876543210" className="text-white hover:text-purple-300 font-medium text-sm sm:text-base transition-colors duration-300">
-                                        +91 98765 43210
+                                        +91 84358 56067
                                     </a>
                                 </div>
                             </div>
 
-                            {/* Location Card */}
                             <div className="flex items-center space-x-4 p-4 rounded-xl border border-white/5 bg-white/5 hover:border-purple-500/30 transition-all duration-300">
                                 <div className="p-3 bg-purple-500/10 rounded-lg text-purple-400">
                                     <MapPin className="w-5 h-5" />
@@ -134,27 +125,26 @@ const Contact = () => {
                                 <div className="flex flex-col">
                                     <span className="text-xs text-purple-400 font-mono">Location</span>
                                     <span className="text-white font-medium text-sm sm:text-base">
-                                        Delhi, India
+                                        Indore, India
                                     </span>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Social Links Panel */}
                         <div className="pt-4 flex items-center space-x-4">
                             <span className="text-xs text-gray-500 font-mono uppercase tracking-wider">Social Links</span>
                             <div className="w-8 h-px bg-white/10" />
-                            <a 
-                                href="https://github.com" 
-                                target="_blank" 
+                            <a
+                                href="https://github.com/Amanverma45"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2.5 rounded-lg bg-white/5 border border-white/5 hover:border-purple-500/40 text-gray-400 hover:text-white transition-all duration-300"
                             >
                                 <GithubIcon className="w-5 h-5" />
                             </a>
-                            <a 
-                                href="https://linkedin.com" 
-                                target="_blank" 
+                            <a
+                                href="https://www.linkedin.com/in/aman-verma-2b1216350/"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2.5 rounded-lg bg-white/5 border border-white/5 hover:border-purple-500/40 text-gray-400 hover:text-purple-400 transition-all duration-300"
                             >
@@ -163,12 +153,10 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    {/* Right Column: Contact Form */}
                     <div className="lg:col-span-7 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                         <div className="relative glassmorphism rounded-2xl p-6 sm:p-8 border border-white/5 hover:border-purple-500/20 shadow-2xl transition-all duration-300">
-                            
+
                             {status === 'success' ? (
-                                /* Success Response UI Animation */
                                 <div className="flex flex-col items-center text-center py-10 space-y-4 animate-slide-up">
                                     <div className="p-4 bg-purple-500/15 text-purple-400 rounded-full border border-purple-500/25 animate-glow">
                                         <CheckCircle className="w-12 h-12" />
@@ -186,41 +174,40 @@ const Contact = () => {
                                     </button>
                                 </div>
                             ) : (
-                                /* Active Message Form */
                                 <form onSubmit={handleSubmit} className="space-y-5">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                         <div className="flex flex-col space-y-1.5">
                                             <label htmlFor="name" className="text-xs text-purple-400 font-mono">Your Name</label>
-                                            <input 
-                                                type="text" 
-                                                id="name" 
+                                            <input
+                                                type="text"
+                                                id="name"
                                                 name="name"
                                                 value={formData.name}
                                                 onChange={handleInputChange}
                                                 required
-                                                placeholder="John Doe"
+                                                placeholder="Aman Verma"
                                                 className="w-full bg-white/5 border border-white/10 focus:border-purple-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors duration-300 placeholder-gray-600"
                                             />
                                         </div>
                                         <div className="flex flex-col space-y-1.5">
                                             <label htmlFor="email" className="text-xs text-purple-400 font-mono">Email Address</label>
-                                            <input 
-                                                type="email" 
-                                                id="email" 
+                                            <input
+                                                type="email"
+                                                id="email"
                                                 name="email"
                                                 value={formData.email}
                                                 onChange={handleInputChange}
                                                 required
-                                                placeholder="john@example.com"
+                                                placeholder="name@gmail.com"
                                                 className="w-full bg-white/5 border border-white/10 focus:border-purple-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors duration-300 placeholder-gray-600"
                                             />
                                         </div>
                                     </div>
                                     <div className="flex flex-col space-y-1.5">
                                         <label htmlFor="subject" className="text-xs text-purple-400 font-mono">Subject (Optional)</label>
-                                        <input 
-                                            type="text" 
-                                            id="subject" 
+                                        <input
+                                            type="text"
+                                            id="subject"
                                             name="subject"
                                             value={formData.subject}
                                             onChange={handleInputChange}
@@ -230,8 +217,8 @@ const Contact = () => {
                                     </div>
                                     <div className="flex flex-col space-y-1.5">
                                         <label htmlFor="message" className="text-xs text-purple-400 font-mono">Message Details</label>
-                                        <textarea 
-                                            id="message" 
+                                        <textarea
+                                            id="message"
                                             name="message"
                                             rows="5"
                                             value={formData.message}

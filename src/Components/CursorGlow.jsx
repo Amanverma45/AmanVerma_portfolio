@@ -5,7 +5,6 @@ const CursorGlow = () => {
     const [isTouchDevice, setIsTouchDevice] = useState(true)
 
     useEffect(() => {
-        // Disable on touch devices/mobiles for performance
         const checkTouchDevice = () => {
             const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768
             setIsTouchDevice(isTouch)
@@ -31,7 +30,7 @@ const CursorGlow = () => {
     if (isTouchDevice) return null
 
     return (
-        <div 
+        <div
             className="fixed pointer-events-none z-[99] -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-purple-600/5 blur-[50px] transition-transform duration-300 ease-out"
             style={{
                 left: `${position.x}px`,

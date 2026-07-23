@@ -14,18 +14,17 @@ const BackgroundFX = () => {
         let matrixColumns = []
         let activeFx = localStorage.getItem('theme-bgfx') || 'cyber-grid'
 
-        // Set canvas size
         const resizeCanvas = () => {
             canvas.width = window.innerWidth
             canvas.height = window.innerHeight
             initFX()
         }
 
-        // Initialize chosen animation structures
+
         const initFX = () => {
             particles = []
             matrixColumns = []
-            
+
             if (activeFx === 'spider-jaal') {
                 const count = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100)
                 for (let i = 0; i < count; i++) {
@@ -51,12 +50,12 @@ const BackgroundFX = () => {
             }
         }
 
-        // Fetch current theme color for line styling
+
         const getAccentColor = (alpha = 1) => {
             const rootStyle = getComputedStyle(document.documentElement)
             const accentHex = rootStyle.getPropertyValue('--theme-purple-500').trim() || '#a855f7'
-            
-            // Hex to RGBA
+
+
             let r = 168, g = 85, b = 247
             if (accentHex.startsWith('#')) {
                 const hex = accentHex.replace('#', '')
@@ -73,18 +72,17 @@ const BackgroundFX = () => {
             return `rgba(${r}, ${g}, ${b}, ${alpha})`
         }
 
-        // Animation Loop
         const tick = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             const accentColor = getAccentColor
 
             if (activeFx === 'spider-jaal') {
-                // 1. Spider Jaal (Floating nodes with connecting lines)
+
                 particles.forEach(p => {
                     p.x += p.vx
                     p.y += p.vy
 
-                    // Boundary collision
+
                     if (p.x < 0 || p.x > canvas.width) p.vx *= -1
                     if (p.y < 0 || p.y > canvas.height) p.vy *= -1
 
@@ -94,7 +92,7 @@ const BackgroundFX = () => {
                     ctx.fill()
                 })
 
-                // Draw lines between close particles
+
                 ctx.lineWidth = 0.6
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
@@ -109,10 +107,10 @@ const BackgroundFX = () => {
                         }
                     }
                 }
-            } 
-            
+            }
+
             else if (activeFx === 'cyber-grid') {
-                // 2. Cyber Grid Waves (Moving animated lines on 3D plane)
+
                 ctx.lineWidth = 0.8
                 ctx.strokeStyle = accentColor(0.08)
 
@@ -120,7 +118,7 @@ const BackgroundFX = () => {
                 gridOffset += 0.6
                 if (gridOffset >= 40) gridOffset = 0
 
-                // Draw perspective vertical lines
+
                 const numVLines = 30
                 for (let i = 0; i <= numVLines; i++) {
                     const progress = i / numVLines
@@ -132,16 +130,16 @@ const BackgroundFX = () => {
                     ctx.stroke()
                 }
 
-                // Draw horizontal waves
+
                 const numHLines = 12
                 for (let i = 0; i < numHLines; i++) {
                     const yOffset = ((i * 40 + gridOffset) / (numHLines * 40)) * (canvas.height - horizon)
                     const currentY = horizon + yOffset
-                    
-                    // Wave sine-curve displacement
+
+
                     ctx.beginPath()
                     for (let x = 0; x <= canvas.width; x += 10) {
-                        const waveFactor = (currentY - horizon) / (canvas.height - horizon) // more displacement closer to bottom
+                        const waveFactor = (currentY - horizon) / (canvas.height - horizon)
                         const wave = Math.sin(x * 0.005 + gridOffset * 0.05) * 12 * waveFactor
                         if (x === 0) {
                             ctx.moveTo(x, currentY + wave)
@@ -152,10 +150,9 @@ const BackgroundFX = () => {
                     ctx.strokeStyle = accentColor(0.04 + (yOffset / (canvas.height - horizon)) * 0.08)
                     ctx.stroke()
                 }
-            } 
-            
+            }
+
             else if (activeFx === 'matrix-lines') {
-                // 3. Falling Lines (Digital coding laser streams)
                 ctx.lineWidth = 1.5
                 matrixColumns.forEach(col => {
                     col.y += col.speed
@@ -164,7 +161,6 @@ const BackgroundFX = () => {
                         col.speed = Math.random() * 2 + 1.5
                     }
 
-                    // Create fade gradient for falling line
                     const grad = ctx.createLinearGradient(col.x, col.y, col.x, col.y + col.length * 10)
                     grad.addColorStop(0, 'rgba(0,0,0,0)')
                     grad.addColorStop(0.8, accentColor(0.18))
@@ -176,7 +172,6 @@ const BackgroundFX = () => {
                     ctx.lineTo(col.x, col.y + col.length * 10)
                     ctx.stroke()
 
-                    // Glow tip
                     ctx.fillStyle = '#ffffff'
                     ctx.beginPath()
                     ctx.arc(col.x, col.y + col.length * 10, 1, 0, Math.PI * 2)
@@ -187,7 +182,6 @@ const BackgroundFX = () => {
             animationFrameId = requestAnimationFrame(tick)
         }
 
-        // Listener for dynamic background FX change
         const handleFxChange = () => {
             activeFx = localStorage.getItem('theme-bgfx') || 'cyber-grid'
             initFX()
@@ -195,7 +189,7 @@ const BackgroundFX = () => {
 
         window.addEventListener('resize', resizeCanvas)
         window.addEventListener('bgfx-changed', handleFxChange)
-        
+
         resizeCanvas()
         tick()
 
