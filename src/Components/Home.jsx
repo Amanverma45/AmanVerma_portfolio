@@ -72,7 +72,7 @@ const Home = () => {
                     </p>
 
                     {/* Action Call to Buttons */}
-                    <div className="flex flex-wrap gap-4 pt-2 w-full sm:w-auto">
+                    <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-4 pt-2 w-full sm:w-auto">
                         <Link
                             to="/projects"
                             className="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/40 hover:-translate-y-0.5 text-sm"
