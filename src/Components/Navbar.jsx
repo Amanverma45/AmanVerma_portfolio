@@ -112,10 +112,11 @@ const Navbar = () => {
                             {/* Rare Animated Glowing Aura */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
                             
-                            {/* 2-Line Length Swap Hamburger */}
-                            <div className="relative w-6 h-3 z-10 flex flex-col justify-between items-end">
+                            {/* 3-Line Custom Hamburger */}
+                            <div className="relative w-6 h-4 z-10 flex flex-col justify-between items-end">
                                 <span className="h-0.5 w-6 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-4" />
                                 <span className="h-0.5 w-4 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-6" />
+                                <span className="h-0.5 w-6 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-4" />
                             </div>
                         </button>
                     </div>
