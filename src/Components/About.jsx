@@ -27,44 +27,47 @@ const About = () => {
                     {/* Left Column: Profile Picture & Terminal Mockup */}
                     <div className="lg:col-span-5 flex flex-col space-y-6 items-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
 
-                         {/* Levitating Staggered Frame Profile Image Container */}
-                        <div className="relative w-64 h-64 flex items-center justify-center group mb-6 animate-bounce-slow">
-                            {/* Ambient Glow Backdrop */}
-                            <div className="absolute inset-4 bg-gradient-to-tr from-purple-600/20 to-cyan-500/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
+                         {/* Entrance Rebound Wrapper (Slides from left, past destination, bounces back to settle) */}
+                        <div className="animate-rebound w-full flex justify-center">
+                            {/* Levitating Staggered Frame Profile Image Container */}
+                            <div className="relative w-64 h-64 flex items-center justify-center group mb-6 animate-bounce-slow">
+                                {/* Ambient Glow Backdrop */}
+                                <div className="absolute inset-4 bg-gradient-to-tr from-purple-600/20 to-cyan-500/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
 
-                            {/* Back Border Frame (Offset Top-Left, contracts on hover) */}
-                            <div className="absolute inset-6 border border-purple-500/40 rounded-2xl -translate-x-4 -translate-y-4 transition-transform duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
+                                {/* Back Border Frame (Offset Top-Left, contracts on hover) */}
+                                <div className="absolute inset-6 border border-purple-500/40 rounded-2xl -translate-x-4 -translate-y-4 transition-transform duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
 
-                            {/* Front Border Frame (Offset Bottom-Right, contracts on hover) */}
-                            <div className="absolute inset-6 border border-cyan-400/40 rounded-2xl translate-x-4 translate-y-4 transition-transform duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
+                                {/* Front Border Frame (Offset Bottom-Right, contracts on hover) */}
+                                <div className="absolute inset-6 border border-cyan-400/40 rounded-2xl translate-x-4 translate-y-4 transition-transform duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
 
-                            {/* Main Image Frame */}
-                            <div className="relative w-48 h-48 overflow-hidden rounded-2xl border border-white/10 group-hover:border-purple-500/40 shadow-xl shadow-purple-950/20 transition-all duration-500 bg-slate-950/80 z-10">
-                                {/* User Profile Image */}
-                                <img
-                                    src="/profile.png"
-                                    alt="Aman Verma"
-                                    className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.04] saturate-[1.02] transition-all duration-500 group-hover:scale-105"
-                                    onError={(e) => {
-                                        // Fallback UI placeholder if profile.png is missing
-                                        e.target.src = 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'
-                                    }}
-                                />
+                                {/* Main Image Frame */}
+                                <div className="relative w-48 h-48 overflow-hidden rounded-2xl border border-white/10 group-hover:border-purple-500/40 shadow-xl shadow-purple-950/20 transition-all duration-500 bg-slate-950/80 z-10">
+                                    {/* User Profile Image */}
+                                    <img
+                                        src="/profile.png"
+                                        alt="Aman Verma"
+                                        className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.04] saturate-[1.02] transition-all duration-500 group-hover:scale-105"
+                                        onError={(e) => {
+                                            // Fallback UI placeholder if profile.png is missing
+                                            e.target.src = 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'
+                                        }}
+                                    />
 
-                                {/* Ambient gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                                    {/* Ambient gradient overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                                {/* Light sheen sweep effect on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-                            </div>
+                                    {/* Light sheen sweep effect on hover */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+                                </div>
 
-                            {/* Floating Status Badge (Live Status) */}
-                            <div className="absolute top-2 right-4 px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-full text-[9px] font-extrabold tracking-wider uppercase flex items-center gap-1.5 shadow-lg shadow-purple-600/30 z-20 select-none">
-                                <span className="relative flex h-1.5 w-1.5">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
-                                </span>
-                                Developer
+                                {/* Floating Status Badge (Live Status) */}
+                                <div className="absolute top-2 right-4 px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-full text-[9px] font-extrabold tracking-wider uppercase flex items-center gap-1.5 shadow-lg shadow-purple-600/30 z-20 select-none">
+                                    <span className="relative flex h-1.5 w-1.5">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                                    </span>
+                                    Developer
+                                </div>
                             </div>
                         </div>
 
