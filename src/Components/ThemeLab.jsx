@@ -83,9 +83,15 @@ const ThemeLab = ({ isOpen, onClose }) => {
                     <button
                         onClick={onClose}
                         aria-label="Close Panel"
-                        className="group relative p-2 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 text-gray-400 hover:text-red-400 transition-all duration-500 focus:outline-none"
+                        className="group relative p-2.5 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 text-gray-400 hover:text-red-400 transition-all duration-500 focus:outline-none cursor-pointer"
                     >
-                        <X className="w-4 h-4 transition-transform duration-500 group-hover:rotate-180 z-10" />
+                        <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
+                        
+                        {/* Custom X matching the hamburger line thickness and style */}
+                        <div className="relative w-5 h-5 z-10 flex items-center justify-center">
+                            <span className="absolute h-[3px] w-5 rounded bg-current rotate-45 transition-all duration-500 ease-in-out group-hover:rotate-[225deg]" />
+                            <span className="absolute h-[3px] w-5 rounded bg-current -rotate-45 transition-all duration-500 ease-in-out group-hover:rotate-[135deg]" />
+                        </div>
                     </button>
                 </div>
 
