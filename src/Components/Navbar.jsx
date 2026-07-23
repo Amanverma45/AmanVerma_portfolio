@@ -113,10 +113,10 @@ const Navbar = () => {
                             <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
                             
                             {/* 3-Line Custom Hamburger */}
-                            <div className="relative w-5 h-4.5 z-10 flex flex-col justify-between items-end">
-                                <span className="h-1 w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
-                                <span className="h-1 w-3 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-5" />
-                                <span className="h-1 w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
+                            <div className="relative w-5 h-4 z-10 flex flex-col justify-between items-end">
+                                <span className="h-[3px] w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
+                                <span className="h-[3px] w-3 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-5" />
+                                <span className="h-[3px] w-5 rounded bg-current transition-all duration-300 ease-in-out group-hover:w-3" />
                             </div>
                         </button>
                     </div>
@@ -157,7 +157,12 @@ const Navbar = () => {
                         className="group relative p-2.5 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 text-gray-400 hover:text-red-400 transition-all duration-500 focus:outline-none"
                     >
                         <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
-                        <X className="w-5 h-5 transition-transform duration-500 group-hover:rotate-180 z-10" />
+                        
+                        {/* Custom X matching the hamburger line thickness and style */}
+                        <div className="relative w-5 h-5 z-10 flex items-center justify-center">
+                            <span className="absolute h-[3px] w-5 rounded bg-current rotate-45 transition-all duration-500 ease-in-out group-hover:rotate-[225deg]" />
+                            <span className="absolute h-[3px] w-5 rounded bg-current -rotate-45 transition-all duration-500 ease-in-out group-hover:rotate-[135deg]" />
+                        </div>
                     </button>
                 </div>
 
