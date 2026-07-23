@@ -153,7 +153,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Navigation Links */}
-                <div className="flex flex-col space-y-4 mt-8">
+                <div className="flex flex-col space-y-2 mt-5">
                     {navLinks.map((link, idx) => {
                         const Icon = link.icon
                         return (
@@ -163,7 +163,7 @@ const Navbar = () => {
                                 onClick={() => setIsOpen(false)}
                                 style={{ animationDelay: `${idx * 75}ms` }}
                                 className={({ isActive }) => `
-                                    flex items-center space-x-4 p-3.5 rounded-xl text-base sm:text-lg font-medium transition-all duration-300
+                                    flex items-center space-x-4 py-2.5 px-3.5 rounded-xl text-base font-medium transition-all duration-300
                                     ${isOpen ? 'animate-slide-up opacity-0' : 'opacity-0'}
                                     ${isActive
                                         ? 'text-white bg-purple-500/25 border border-purple-500/30'
@@ -181,7 +181,7 @@ const Navbar = () => {
                         onClick={() => setIsOpen(false)}
                         style={{ animationDelay: `${navLinks.length * 75}ms` }}
                         className={`
-                            mt-6 flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-500 hover:to-blue-400 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/20 transition-all hover:shadow-purple-500/40 text-base
+                            mt-4 flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-500 hover:to-blue-400 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/20 transition-all hover:shadow-purple-500/40 text-base
                             ${isOpen ? 'animate-slide-up opacity-0' : 'opacity-0'}
                         `}
                     >
