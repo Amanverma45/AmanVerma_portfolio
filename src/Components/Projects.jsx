@@ -8,13 +8,15 @@ const Projects = () => {
             description: 'A modern peer-to-peer item swapping marketplace platform. Enables users to upload items, list exchange preferences, negotiate deals, and barter items seamlessly.',
             tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS', 'Socket.io'],
             link: 'https://swaphub45.netlify.app',
+            image: '/swaphub.png',
             category: 'Full-Stack MERN'
         },
         {
-            title: 'AP Decoration',
+            title: 'YN Events',
             description: 'A premium event planning and decoration portfolio platform. Features categorised event galleries, dynamic inquiry forms, booking engines, and highly responsive transitions.',
             tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Express', 'Node.js', 'MongoDB'],
-            link: 'https://ap-decoration.netlify.app',
+            link: 'https://yn-event.netlify.app',
+            image: '/yn-events.png',
             category: 'MERN & UI'
         },
         {
@@ -22,6 +24,7 @@ const Projects = () => {
             description: 'An advanced job matching and recruitment portal. Bridges the gap between job seekers and employers with resume trackers, job posting dashboards, and real-time alerts.',
             tech: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
             link: 'https://yourcareerbridge.netlify.app',
+            image: '/careerbridge.png',
             category: 'Full-Stack MERN'
         }
     ]
@@ -80,13 +83,28 @@ const Projects = () => {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group block relative glassmorphism rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 border border-white/5 hover:border-purple-500/40 hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)] animate-slide-up"
+                            className="group block relative glassmorphism rounded-2xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-2 border border-white/5 hover:border-purple-500/40 hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)] animate-slide-up"
                             style={{ animationDelay: `${index * 120}ms` }}
                         >
+                            {/* Project Screenshot Display */}
+                            <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 border border-white/10 group-hover:border-purple-500/30 transition-all duration-300 bg-slate-950/40">
+                                <img 
+                                    src={project.image} 
+                                    alt={project.title} 
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onError={(e) => {
+                                        // Fallback design if image is missing/loading
+                                        e.target.style.display = 'none';
+                                    }}
+                                />
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                            </div>
+
                             {/* Project Header Icons */}
-                            <div className="flex justify-between items-start mb-6">
-                                <div className="p-3 bg-purple-500/10 rounded-xl border border-purple-500/20 text-purple-400 group-hover:bg-purple-500/20 group-hover:text-white transition-all duration-300">
-                                    <Globe className="w-6 h-6" />
+                            <div className="flex justify-between items-start mb-4">
+                                <div className="p-2.5 bg-purple-500/10 rounded-lg border border-purple-500/20 text-purple-400 group-hover:bg-purple-500/20 group-hover:text-white transition-all duration-300">
+                                    <Globe className="w-5 h-5" />
                                 </div>
                                 <div className="text-gray-500 group-hover:text-purple-400 transition-colors duration-300">
                                     <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
