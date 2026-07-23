@@ -107,9 +107,17 @@ const Navbar = () => {
                         <button
                             onClick={() => setIsOpen(true)}
                             aria-label="Open Menu"
-                            className="p-2 text-gray-400 hover:text-white focus:outline-none transition-colors rounded-lg bg-white/5 hover:bg-white/10"
+                            className="group relative p-3 flex items-center justify-center rounded-xl bg-white/5 hover:bg-purple-600/10 border border-white/5 hover:border-purple-500/35 text-gray-400 hover:text-purple-400 transition-all duration-500 focus:outline-none"
                         >
-                            <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+                            {/* Rare Animated Glowing Aura */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
+                            
+                            {/* Hamburger to Arrow Morphing Container */}
+                            <div className="relative w-6 h-4.5 z-10 flex flex-col justify-between overflow-hidden">
+                                <span className="absolute top-0 right-0 h-0.5 w-6 rounded bg-current origin-right transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:w-3" />
+                                <span className="absolute top-[7px] right-0 h-0.5 w-6 rounded bg-current transition-all duration-300 ease-in-out group-hover:-translate-x-1 group-hover:w-5" />
+                                <span className="absolute bottom-0 right-0 h-0.5 w-6 rounded bg-current origin-right transition-all duration-300 ease-in-out group-hover:-rotate-45 group-hover:w-3" />
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -146,9 +154,10 @@ const Navbar = () => {
                     <button
                         onClick={() => setIsOpen(false)}
                         aria-label="Close Menu"
-                        className="p-2 text-gray-400 hover:text-white focus:outline-none transition-colors rounded-lg bg-white/5 hover:bg-white/10"
+                        className="group relative p-2.5 flex items-center justify-center rounded-xl bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 text-gray-400 hover:text-red-400 transition-all duration-500 focus:outline-none"
                     >
-                        <X className="w-5 h-5" />
+                        <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm rounded-xl pointer-events-none" />
+                        <X className="w-5 h-5 transition-transform duration-500 group-hover:rotate-180 z-10" />
                     </button>
                 </div>
 
