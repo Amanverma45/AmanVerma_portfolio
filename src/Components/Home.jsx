@@ -33,12 +33,12 @@ const Home = () => {
     }, [subIndex, wordIndex])
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center pt-20 lg:pt-28 pb-8 lg:pb-16 overflow-hidden">
             {/* Ambient Background Glows */}
             <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-purple-600/10 blur-[120px] pointer-events-none animate-pulse-slow" />
             <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/10 blur-[150px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center relative z-10 w-full">
                 
                 {/* Left Column: Hero Content */}
                 <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6 md:space-y-8 animate-fade-in">
@@ -99,8 +99,8 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Right Column: Visual Tech Display / Mockup (Hidden on mobile/tablet for cleaner mobile view, shown on lg screens) */}
-                <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                {/* Right Column: Visual Tech Display / Mockup (Visible on all screens, with orbit rotation) */}
+                <div className="col-span-1 lg:col-span-5 flex flex-col items-center justify-center relative animate-fade-in mt-4 lg:mt-0" style={{ animationDelay: '0.3s' }}>
                     <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center">
                         {/* Orbiting Tech Stack Card */}
                         <div className="absolute inset-0 rounded-full border border-purple-500/10 animate-spin-slow" />
@@ -111,29 +111,39 @@ const Home = () => {
                             <span className="text-[10px] text-gray-400 tracking-[0.2em] uppercase mt-2">Full Stack</span>
                         </div>
 
-                        {/* Interactive floating tech icons around center */}
-                        {/* React Icon */}
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 p-4 bg-slate-950/80 border border-blue-500/30 rounded-2xl shadow-xl shadow-blue-500/5 animate-bounce-slow flex flex-col items-center">
-                            <Code className="w-8 h-8 text-blue-400" />
-                            <span className="text-xs text-gray-300 mt-1 font-medium">React</span>
-                        </div>
-                        
-                        {/* Node Icon */}
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 p-4 bg-slate-950/80 border border-green-500/30 rounded-2xl shadow-xl shadow-green-500/5 animate-bounce-slow flex flex-col items-center" style={{ animationDelay: '1.5s' }}>
-                            <Server className="w-8 h-8 text-green-400" />
-                            <span className="text-xs text-gray-300 mt-1 font-medium">Node.js</span>
-                        </div>
+                        {/* Interactive floating tech icons orbiting around center */}
+                        <div className="absolute inset-0 animate-spin-normal">
+                            {/* React Icon */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 p-4 bg-slate-950/80 border border-blue-500/30 rounded-2xl shadow-xl shadow-blue-500/5 flex flex-col items-center animate-spin-reverse-normal">
+                                <div className="animate-bounce-slow flex flex-col items-center">
+                                    <Code className="w-8 h-8 text-blue-400" />
+                                    <span className="text-xs text-gray-300 mt-1 font-medium">React</span>
+                                </div>
+                            </div>
+                            
+                            {/* Node Icon */}
+                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 p-4 bg-slate-950/80 border border-green-500/30 rounded-2xl shadow-xl shadow-green-500/5 flex flex-col items-center animate-spin-reverse-normal">
+                                <div className="animate-bounce-slow flex flex-col items-center flex flex-col items-center" style={{ animationDelay: '1.5s' }}>
+                                    <Server className="w-8 h-8 text-green-400" />
+                                    <span className="text-xs text-gray-300 mt-1 font-medium">Node.js</span>
+                                </div>
+                            </div>
 
-                        {/* MongoDB Icon */}
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2 p-4 bg-slate-950/80 border border-emerald-500/30 rounded-2xl shadow-xl shadow-emerald-500/5 animate-bounce-slow flex flex-col items-center" style={{ animationDelay: '0.7s' }}>
-                            <Database className="w-8 h-8 text-emerald-400" />
-                            <span className="text-xs text-gray-300 mt-1 font-medium">MongoDB</span>
-                        </div>
+                            {/* MongoDB Icon */}
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 p-4 bg-slate-950/80 border border-emerald-500/30 rounded-2xl shadow-xl shadow-emerald-500/5 flex flex-col items-center animate-spin-reverse-normal">
+                                <div className="animate-bounce-slow flex flex-col items-center flex flex-col items-center" style={{ animationDelay: '0.7s' }}>
+                                    <Database className="w-8 h-8 text-emerald-400" />
+                                    <span className="text-xs text-gray-300 mt-1 font-medium">MongoDB</span>
+                                </div>
+                            </div>
 
-                        {/* Express Icon */}
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 p-4 bg-slate-950/80 border border-purple-500/30 rounded-2xl shadow-xl shadow-purple-500/5 animate-bounce-slow flex flex-col items-center" style={{ animationDelay: '2.2s' }}>
-                            <Server className="w-8 h-8 text-purple-400" />
-                            <span className="text-xs text-gray-300 mt-1 font-medium">Express</span>
+                            {/* Express Icon */}
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 p-4 bg-slate-950/80 border border-purple-500/30 rounded-2xl shadow-xl shadow-purple-500/5 flex flex-col items-center animate-spin-reverse-normal">
+                                <div className="animate-bounce-slow flex flex-col items-center flex flex-col items-center" style={{ animationDelay: '2.2s' }}>
+                                    <Server className="w-8 h-8 text-purple-400" />
+                                    <span className="text-xs text-gray-300 mt-1 font-medium">Express</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
