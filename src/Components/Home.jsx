@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         if (subIndex === words[wordIndex].length + 1 && !reverse) {
-            const timeout = setTimeout(() => setReverse(true), 2200) // Hold word for 2.2 seconds
+            const timeout = setTimeout(() => setReverse(true), 2200) 
             return () => clearTimeout(timeout)
         }
 

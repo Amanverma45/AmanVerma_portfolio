@@ -92,7 +92,7 @@ const About = () => {
                                     ],
                                 </div>
                                 <div className="pl-4 sm:pl-6">
-                                    <span className="text-gray-400">location:</span> <span className="text-emerald-300">"India"</span>,
+                                    <span className="text-gray-400">location:</span> <span className="text-emerald-300">"Indore,India"</span>,
                                 </div>
                                 <div className="pl-4 sm:pl-6">
                                     <span className="text-gray-400">availability:</span> <span className="text-purple-400">true</span>
