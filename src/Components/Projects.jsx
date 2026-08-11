@@ -24,7 +24,7 @@ const Projects = () => {
             description: 'An advanced job matching and recruitment portal. Bridges the gap between job seekers and employers with resume trackers, job posting dashboards, and real-time alerts.',
             tech: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
             link: 'https://yourcareerbridge.netlify.app',
-            image: '/carrerBridge.png',
+            image: '/careerBridge.png',
             category: 'Full-Stack MERN'
         }
     ]
@@ -42,7 +42,7 @@ const Projects = () => {
             <div className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-blue-500/5 blur-[150px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-                
+
                 <div className="flex flex-col items-center text-center space-y-3 mb-10 animate-fade-in">
                     <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-purple-400 font-mono lowercase">
                         // featured works
@@ -61,11 +61,10 @@ const Projects = () => {
                         <button
                             key={category}
                             onClick={() => setActiveFilter(category)}
-                            className={`px-4 py-2 text-xs sm:text-sm font-medium rounded-xl border transition-all duration-300 ${
-                                activeFilter === category
+                            className={`px-4 py-2 text-xs sm:text-sm font-medium rounded-xl border transition-all duration-300 ${activeFilter === category
                                     ? 'bg-purple-600 border-purple-500 text-white shadow-lg shadow-purple-600/20'
                                     : 'bg-white/5 border-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
-                            }`}
+                                }`}
                         >
                             {category}
                         </button>
@@ -80,9 +79,9 @@ const Projects = () => {
                             style={{ animationDelay: `${index * 120}ms` }}
                         >
                             <div className="relative w-full aspect-video overflow-hidden bg-slate-950/40 border-b border-white/5">
-                                <img 
-                                    src={project.image} 
-                                    alt={project.title} 
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     onError={(e) => {
                                         e.target.style.display = 'none';
