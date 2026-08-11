@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { Terminal, Code, Database, Server, User, ArrowRight } from 'lucide-react'
 
@@ -27,18 +27,18 @@ const About = () => {
                     <div className="lg:col-span-5 flex flex-col space-y-6 items-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
 
                         <div className="animate-rebound w-full flex justify-center">
-                            <div className="relative w-64 h-64 flex items-center justify-center group mb-6 animate-bounce-slow">
+                            <div className="relative w-64 h-96 flex items-center justify-center group mb-6 animate-bounce-slow">
                                 <div className="absolute inset-4 bg-gradient-to-tr from-purple-600/20 to-cyan-500/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
 
                                 <div className="absolute inset-6 border border-purple-500/40 rounded-2xl -translate-x-4 -translate-y-4 transition-transform duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
 
                                 <div className="absolute inset-6 border border-cyan-400/40 rounded-2xl translate-x-4 translate-y-4 transition-transform duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
 
-                                <div className="relative w-48 h-48 overflow-hidden rounded-2xl border border-white/10 group-hover:border-purple-500/40 shadow-xl shadow-purple-950/20 transition-all duration-500 bg-slate-950/80 z-10">
+                                <div className="relative w-48 h-80 overflow-hidden rounded-2xl border border-white/10 group-hover:border-purple-500/40 shadow-xl shadow-purple-950/20 transition-all duration-500 bg-slate-950/80 z-10">
                                     <img
                                         src="/profile.png"
                                         alt="Aman Verma"
-                                        className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.04] saturate-[1.02] transition-all duration-500 group-hover:scale-105"
+                                        className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.04] saturate-[1.02] transition-all duration-500 group-hover:scale-105"
                                         onError={(e) => {
                                             e.target.src = 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'
                                         }}
